@@ -1,7 +1,9 @@
 
-// Copyright Wintriss Technical Schools 2013
-
 import java.awt.Component;
+import org.junit.runner;
+
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionListener;
 import java.net.MalformedURLException;
 import java.net.URL;
 import javax.swing.Icon;
@@ -10,12 +12,17 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
-public class PhotoQuiz {
+public class PhotoQuiz  {
 
 	public static void main(String[] args) throws Exception {
 
-		JFrame quizWindow = new JFrame();
+		new PhotoQuiz().quizCreateUI();
 
+	}
+
+	private void quizCreateUI() throws MalformedURLException {
+		String answer;
+		JFrame quizWindow = new JFrame();
 		quizWindow.setVisible(true);
 
 		// 1. find an image on the internet, and put its URL in a String
@@ -28,6 +35,7 @@ public class PhotoQuiz {
 
 		// 3. use the "createImage()" method below to initialize your Component
 		catComponent = createImage(myCatPic);
+		catComponent.addMouseMotionListener((MouseMotionListener) new CustomMouseMotionListener());
 
 		// 4. add the image to the quiz window
 		quizWindow.add(catComponent);
@@ -35,14 +43,16 @@ public class PhotoQuiz {
 		// 5. call the pack() method on the quiz window
 		quizWindow.pack();
 
-		// 6. ask a question that relates to the image
-		String answer = JOptionPane.showInputDialog("Is this a cute cat?");
+		do {
+			// 6. ask a question that relates to the image
+			answer = JOptionPane.showInputDialog("Is this a cute cat?");
 
-		// 7. print "CORRECT" if the user gave the right answer
-		if (answer.equals("yes"))
-		{
-			JOptionPane.showMessageDialog(null,  "I agree!!!!");
-		}
+			// 7. print "CORRECT" if the user gave the right answer
+			if (answer.equals("yes")) {
+				JOptionPane.showMessageDialog(null, "I agree!!!!");
+				break;
+			}
+		} while (answer == null);
 
 		// 8. print "INCORRECT" if the answer is wrong
 
@@ -52,30 +62,30 @@ public class PhotoQuiz {
 
 		// 10. find another image and create it (might take more than one line
 		// of code)
+		// 11. add the second image to the quiz window
+		// 12. pack the quiz window
+		// 13. ask another question
+		// 14+ check answer, say if correct or incorrect, etc.
 		myCatPic = "http://www.fabuloussavers.com/new_wallpaper/Impossiblycutekitten-catswallpaper-freecomputerdesktopwallpaper_1024.jpg";
-		catComponent = createImage (myCatPic);
+		catComponent = createImage(myCatPic);
+		catComponent.addMouseMotionListener((MouseMotionListener) new CustomMouseMotionListener());
 		quizWindow.add(catComponent);
 		quizWindow.pack();
-		
-		answer = JOptionPane.showInputDialog("Do you love this cute cat?");
-		if (answer.equals("yes"))
-		{
-			JOptionPane.showMessageDialog(null,  "I so agree!!!!");
-		}
-		
-		quizWindow.remove(catComponent);
-		quizWindow.pack();
 
-		// 11. add the second image to the quiz window
+		do {
 
-		// 12. pack the quiz window
+			answer = JOptionPane.showInputDialog("Do you love this cute cat?");
+			if (answer.equals("yes")) {
+				JOptionPane.showMessageDialog(null, "I so agree!!!!");
+				break;
+			}
+		} while (answer == null);
 
-		// 13. ask another question
-
-		// 14+ check answer, say if correct or incorrect, etc.
+		// quizWindow.remove(catComponent);
+		// quizWindow.pack();
+		// quizWindow.dispose();
 
 	}
-
 
 	private static Component createImage(String imageUrl) throws MalformedURLException {
 
@@ -88,6 +98,7 @@ public class PhotoQuiz {
 		return imageLabel;
 
 	}
+
 
 	/* OPTIONAL */
 
