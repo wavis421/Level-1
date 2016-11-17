@@ -17,7 +17,6 @@ public class Houses {
 		for (int i = 0; i < 10; i++) {
 			drawHouse(new Random().nextInt(200) + 50, PenColors.getRandomColor());
 		}
-
 	}
 
 	private static void drawHouse(int height, Color color) {
