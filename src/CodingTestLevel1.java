@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -7,8 +8,9 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
-public class CodingTestLevel1 implements ActionListener {
+public class CodingTestLevel1 extends JFrame implements ActionListener {
 	JButton yellowButton, redButton, blueButton;
 
 	public static void main(String[] args) {
@@ -16,10 +18,12 @@ public class CodingTestLevel1 implements ActionListener {
 	}
 
 	public CodingTestLevel1() {
+		// Create frame
 		JFrame frame = new JFrame("Color Teacher");
 		JPanel panel = new JPanel();
 		frame.add(panel);
 
+		// Create yellow,red,blue buttons
 		yellowButton = new JButton("        ");
 		configureButton (yellowButton, Color.yellow);
 		
@@ -33,11 +37,21 @@ public class CodingTestLevel1 implements ActionListener {
 		redButton.addActionListener(this);
 		blueButton.addActionListener(this);
 
+		// Add a text panel
+		JTextField textField = new JTextField("Hi there!");
+		textField.setHorizontalAlignment(JTextField.CENTER);
+		textField.setPreferredSize(new Dimension(120,70));
+		textField.setForeground(Color.red);
+		textField.setMargin(new Insets(10,10,10,10));
+		
+		// Add everything to the panel
 		panel.add(yellowButton);
 		panel.add(redButton);
 		panel.add(blueButton);
+		panel.add(textField);
 
 		frame.pack();
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.setVisible(true);
 	}
 
@@ -46,6 +60,7 @@ public class CodingTestLevel1 implements ActionListener {
 		button.setBorder(BorderFactory.createEtchedBorder());
 		button.setBackground(color);
 		button.setOpaque(true);
+		button.setSelected(false);
 	}
 	
 	void speak(String words) {
