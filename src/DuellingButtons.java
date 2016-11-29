@@ -1,19 +1,24 @@
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 public class DuellingButtons implements ActionListener {
-
+	private int clickCount = 0;
+	
 	public static void main(String[] args) {
 		new DuellingButtons().createUI();
 	}
 
 	JButton leftButton = new JButton();
 	JButton rightButton = new JButton();
+	JTextField textField;
 
 	Dimension BIG = new Dimension(400, 400);
 	Dimension SMALL = new Dimension(200, 200);
@@ -30,9 +35,11 @@ public class DuellingButtons implements ActionListener {
 
 		// 3. Set the text of the leftButton to "Click me!"
 		leftButton.setText("Click me!");
+		leftButton.setBackground(Color.red);
 
 		// 4. Set the text of the rightButton to "Click me!"
 		rightButton.setText("Click me!");
+		rightButton.setBackground(Color.blue);
 
 		// 5. Add an action listener to the leftButton
 		leftButton.addActionListener(this);
@@ -45,6 +52,11 @@ public class DuellingButtons implements ActionListener {
 
 		// 8. Add the rightButton to the panel
 		panel.add(rightButton);
+		
+		// Just extra stuff
+		textField = new JTextField ("You clicked " + clickCount + " times!");
+		textField.setMargin(new Insets(10,10,10,10));
+		panel.add(textField);
 
 		// 9. Pack the frame
 		frame.pack();
@@ -57,6 +69,9 @@ public class DuellingButtons implements ActionListener {
 	public void actionPerformed(ActionEvent arg0) {
 		JButton buttonPressed = (JButton) arg0.getSource();
 
+		clickCount++;
+		textField.setText("You clicked " + clickCount + " times!");
+		
 		/* If the buttonPressed was the leftButton.... */
 		if (buttonPressed == leftButton) {
 			// Set the text of the rightButton to "No, click Me!"
