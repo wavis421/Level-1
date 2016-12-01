@@ -24,13 +24,13 @@ public class CodingTestLevel1 extends JFrame implements ActionListener {
 		frame.add(panel);
 
 		// Create yellow,red,blue buttons
-		yellowButton = new JButton();
+		yellowButton = new JButton("yellow");
 		configureButton (yellowButton, Color.yellow);
 		
-		redButton = new JButton();
+		redButton = new JButton("red");
 		configureButton (redButton, Color.red);
 		
-		blueButton = new JButton();
+		blueButton = new JButton("blue");
 		configureButton (blueButton, Color.blue);
 
 		yellowButton.addActionListener(this);
