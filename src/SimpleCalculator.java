@@ -83,13 +83,13 @@ public class SimpleCalculator extends JFrame implements ActionListener {
 		double num2Value = Double.parseDouble(operand2Field.getText());
 
 		if (event.getSource() == addButton) {
-			resultLabel.setText(String.valueOf(num1Value + num2Value));
+			resultLabel.setText(String.format("%.3f", num1Value + num2Value));
 		} else if (event.getSource() == subButton) {
-			resultLabel.setText(String.valueOf(num1Value - num2Value));
+			resultLabel.setText(String.format("%.3f", num1Value - num2Value));
 		} else if (event.getSource() == mulButton) {
-			resultLabel.setText(String.valueOf(num1Value * num2Value));
+			resultLabel.setText(String.format("%.3f", num1Value * num2Value));
 		} else if (event.getSource() == divButton) {
-			resultLabel.setText(String.valueOf(num1Value / num2Value));
+			resultLabel.setText(String.format("%.3f", num1Value / num2Value));
 		}
 	}
 }
