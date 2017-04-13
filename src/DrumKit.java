@@ -20,7 +20,7 @@ public class DrumKit extends MouseAdapter {
 
 	JLabel drumLabelWithImage;
 
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) throws MalformedURLException  {
 		new DrumKit().getGoing();
 	}
 

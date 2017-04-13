@@ -6,7 +6,7 @@ public class TeaMaker {
 		TeaBag teaBag = new TeaBag("Mint");
 		Cup myCup = new Cup();
 		Kettle kettle = new Kettle();
-		
+
 		kettle.getWater();
 		kettle.boil();
 		myCup.makeTea(teaBag, kettle.getWater());

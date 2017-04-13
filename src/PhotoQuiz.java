@@ -79,9 +79,9 @@ public class PhotoQuiz  {
 			}
 		} while (answer == null);
 
-		// quizWindow.remove(catComponent);
-		// quizWindow.pack();
-		// quizWindow.dispose();
+		quizWindow.remove(catComponent);
+		quizWindow.pack();
+		quizWindow.dispose();
 
 	}
 

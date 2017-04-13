@@ -3,6 +3,7 @@ import java.awt.Color;
 public class Runner {
 	public static void main(String[] args) {
 		Duck duck = new Duck ("yellow", "Pizza");
+		new Duck("white", "ice cream").go();
 		duck.eat();
 		duck.quack();
 		

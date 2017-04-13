@@ -14,7 +14,7 @@ public class Houses {
 		Tortoise.setY(430);
 		Tortoise.penDown();
 
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < 14; i++) {
 			drawHouse(new Random().nextInt(200) + 50, PenColors.getRandomColor());
 		}
 	}

@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -84,11 +85,13 @@ public class DuellingButtons implements ActionListener {
 			// Set the PREFERRED size of the rightButton to BIG
 			rightButton.setText("No, click Me!");
 			rightButton.setPreferredSize(BIG);
+			rightButton.setFont(new Font("Arial", Font.PLAIN, 40));
 
 			// Set the text of the leftButton to "Click Me!"
 			// Set the PREFERRED size of the leftButton to SMALL
 			leftButton.setText("Click Me!");
 			leftButton.setPreferredSize(SMALL);
+			leftButton.setFont(new Font("Arial", Font.PLAIN, 20));
 		}
 
 		// If the buttonPressed was the rightButton, do the opposite.
@@ -97,11 +100,13 @@ public class DuellingButtons implements ActionListener {
 			// Set the PREFERRED size of the rightButton to BIG
 			leftButton.setText("No, click Me!");
 			leftButton.setPreferredSize(BIG);
+			leftButton.setFont(new Font("Arial", Font.PLAIN, 40));
 
 			// Set the text of the leftButton to "Click Me!"
 			// Set the PREFERRED size of the leftButton to SMALL
 			rightButton.setText("Click Me!");
 			rightButton.setPreferredSize(SMALL);
+			rightButton.setFont(new Font("Arial", Font.PLAIN, 20));
 		}
 
 		frame.pack();
