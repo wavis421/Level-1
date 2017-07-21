@@ -43,9 +43,10 @@ public class DuellingButtons implements ActionListener {
 
 		// 4. Set the text of the rightButton to "Click me!"
 		rightButton.setText("Click me!");
-		rightButton.setBackground(Color.blue);
-		rightButton.setOpaque(false);
+		rightButton.setBackground(Color.green);
+		rightButton.setOpaque(true);
 		rightButton.setBorder(BorderFactory.createLineBorder(Color.blue, 10, true));
+		rightButton.setForeground(Color.red);
 
 		// 5. Add an action listener to the leftButton
 		leftButton.addActionListener(this);
@@ -67,6 +68,7 @@ public class DuellingButtons implements ActionListener {
 
 		// 9. Pack the frame
 		frame.pack();
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		// 10. Set the title of the frame to "Demanding Buttons"
 

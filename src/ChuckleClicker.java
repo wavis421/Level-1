@@ -47,8 +47,7 @@ public class ChuckleClicker implements ActionListener {
 		} else {
 			System.out.println(punch[idx]);
 			idx++;
-			if (idx >= jokes.length)
-				idx = 0;
+			idx = idx % jokes.length;
 		}
 	}
 }

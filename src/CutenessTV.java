@@ -48,7 +48,7 @@ public class CutenessTV implements ActionListener {
 
 		try {
 
-			URI uri = new URI("https://www.youtube.com/v/" + videoID + "?autoplay=1");
+			URI uri = new URI("https://www.youtube.com/watch?v=" + videoID + "?autoplay=1");
 
 			java.awt.Desktop.getDesktop().browse(uri);
 
@@ -61,10 +61,13 @@ public class CutenessTV implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		JButton buttonPressed = (JButton)arg0.getSource();
-		if (buttonPressed == ducksButton)
+		if (buttonPressed == ducksButton) {
 			System.out.println("Duck button pressed");
-		if (buttonPressed == frogButton)
+			showDucks();
+		}
+		else if (buttonPressed == frogButton) {
 			System.out.println("Frog button pressed");
-
+			showFrog();
+		}
 	}
 }
