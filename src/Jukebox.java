@@ -1,7 +1,7 @@
 
 // Copyright The League of Amazing Programmers, 2015
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -19,7 +19,7 @@ import javazoom.jl.player.advanced.AdvancedPlayer;
 /* 1. Download the JavaZoom jar from here: http://bit.ly/javazoom
  * 2. Right click your project and add it as an External JAR (Under Java Build Path > Libraries).*/
 
-public class Jukebox implements Runnable, MouseListener {
+public class Jukebox extends MouseAdapter implements Runnable {
 
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new Jukebox());
@@ -81,31 +81,6 @@ public class Jukebox implements Runnable, MouseListener {
 			currentSong.play();
 		}
 	}
-
-	@Override
-	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
-
-	}
-
 }
 
 class Song {

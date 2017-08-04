@@ -5,5 +5,9 @@
 	<classpathentry kind="lib" path="C:/Users/Wendy/Documents/GitHub/WorkshopLevel0/IntroToJavaWorkshop/league-jars/Tortoise.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Wendy/Documents/GitHub/WorkshopLevel0/IntroToJavaWorkshop/league-jars/robot.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Wendy/workspace/Level-1/javazoom.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="src/commons-logging-1.1.3.jar"/>
+	<classpathentry kind="lib" path="twitter4j-core-3.0.5.jar"/>
+	<classpathentry kind="lib" path="src/mail.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

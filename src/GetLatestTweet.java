@@ -1,11 +1,18 @@
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
+import javax.swing.JTextPane;
+
+import org.teachingextensions.logo.Colors;
 
 import twitter4j.Query;
 import twitter4j.QueryResult;
@@ -17,6 +24,7 @@ public class GetLatestTweet implements ActionListener {
 
 	JButton button = new JButton("Search the Twitterverse");
 	JTextField searchBox = new JTextField(15);
+	JTextPane output = new JTextPane();
 
 	public static void main(String[] args) {
 		new GetLatestTweet().createUI();
@@ -24,13 +32,25 @@ public class GetLatestTweet implements ActionListener {
 
 	private void createUI() {
 		JFrame frame = new JFrame();
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setTitle("The Amazing Tweet Retriever");
 		frame.setVisible(true);
 
-		JPanel panel = new JPanel();
-		panel.add(searchBox);
-		panel.add(button);
-		frame.add(panel);
+		JPanel topPanel = new JPanel();
+		topPanel.add(searchBox);
+		topPanel.add(button);
+		
+		JPanel outputPanel = new JPanel();
+		output.setBackground(new Color(0xadd8e6));
+		output.setOpaque(true);
+		output.setEditable(false);
+		output.setPreferredSize(new Dimension(500,500));
+		output.setBorder(BorderFactory.createEtchedBorder());
+		JScrollPane scrollPane = new JScrollPane(output);
+		outputPanel.add(scrollPane);
+		
+		frame.add(topPanel, BorderLayout.CENTER);
+		frame.add(outputPanel, BorderLayout.SOUTH);
 		frame.pack();
 
 		button.addActionListener(this);
@@ -38,7 +58,7 @@ public class GetLatestTweet implements ActionListener {
 
 	public void actionPerformed(ActionEvent e) {
 		String searchTerm = searchBox.getText();
-		JOptionPane.showMessageDialog(null, getLatestTweet(searchTerm));
+		output.setText(getLatestTweet(searchTerm));
 	}
 
 	private String getLatestTweet(String searchingFor) {
@@ -51,8 +71,15 @@ public class GetLatestTweet implements ActionListener {
 		twitter.setOAuthAccessToken(accessToken);
 		Query query = new Query(searchingFor);
 		try {
+			String output = "";
 			QueryResult result = twitter.search(query);
-			return result.getTweets().get(0).getText();
+			int numTweets = result.getCount();
+			if (numTweets > 15)
+				numTweets = 15;
+			for (int i = 0; i < numTweets; i++) {
+				output += result.getTweets().get(i).getText() + "\n\n";
+			}
+			return output;
 		} catch (Exception e) {
 			System.err.print(e.getMessage());
 			return "What the heck is that?";
