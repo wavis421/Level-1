@@ -51,9 +51,8 @@ public class SimpleCalculator extends JFrame implements ActionListener {
 
 	// Create operand field 
 	private JTextField createOperandField (String initialValue, JPanel panel) {
-		JTextField newField = new JTextField(initialValue);
+		JTextField newField = new JTextField(initialValue, 10);
 		newField.setHorizontalAlignment(JTextField.RIGHT);
-		newField.setPreferredSize(new Dimension(100, 20));
 		panel.add(newField);
 		return newField;
 	}
