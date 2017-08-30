@@ -31,9 +31,11 @@ public class Jukebox extends MouseAdapter implements Runnable {
 
 		// 3. Find an mp3 on your computer or on the Internet.
 		// 4. Create a Song
-		currentSong = new Song("C:\\Users\\Wendy\\Downloads\\Memory.mp3.crdownload");
+		//currentSong = new Song("C:\\Users\\Wendy\\Downloads\\Memory.mp3.crdownload");
+		currentSong = new Song("Memory.mp3");
 
 		// 5. Play the Song
+		System.out.println("Playing song " + currentSong.toString());
 		currentSong.play();
 
 		/*
@@ -47,6 +49,7 @@ public class Jukebox extends MouseAdapter implements Runnable {
 	}
 
 	JLabel barbaraLabel;
+	JLabel guitarLabel;
 
 	private void createUI() {
 		JFrame jFrame = new JFrame();
@@ -54,9 +57,12 @@ public class Jukebox extends MouseAdapter implements Runnable {
 		JPanel jPanel = new JPanel();
 		jFrame.add(jPanel);
 		barbaraLabel = loadImage("barbara.jpg");
+		guitarLabel = loadImage("guitar.jpg");
 		jPanel.add(barbaraLabel);
+		jPanel.add(guitarLabel);
 		jFrame.pack();
 		barbaraLabel.addMouseListener(this);
+		guitarLabel.addMouseListener(this);
 
 		jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
@@ -70,14 +76,15 @@ public class Jukebox extends MouseAdapter implements Runnable {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
+		currentSong.stop();
 		if (e.getSource() == barbaraLabel) {
-
-			currentSong.stop();
-
-			System.out.println("play barbara");
-			currentSong = new Song("C:\\Users\\Wendy\\Downloads\\Memory.mp3.crdownload");
+			currentSong = new Song("Memory.mp3");
 
 			// 5. Play the Song
+			currentSong.play();
+		}
+		else if (e.getSource() == guitarLabel) {
+			currentSong = new Song("guitar.mp3");
 			currentSong.play();
 		}
 	}
