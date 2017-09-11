@@ -20,6 +20,7 @@ public class DrumKit extends MouseAdapter {
 
 	JLabel drumLabelWithImage;
 	JLabel drumLabelWithImage2;
+	JLabel drumLabelWithImage3;
 
 	public static void main(String[] args) throws MalformedURLException  {
 		new DrumKit().getGoing();
@@ -44,14 +45,17 @@ public class DrumKit extends MouseAdapter {
 		// 8. Put the name of your image in a String variable.
 		String drumImageString = "drum.jpg";
 		String drumImageString2 = "drum2.png";
+		String drumImageString3 = "drum3.png";
 
 		// 9. Edit the next line to use your String variable
 		drumLabelWithImage = createLabelImage(drumImageString);
 		drumLabelWithImage2 = createLabelImage(drumImageString2);
+		drumLabelWithImage3 = createLabelImage(drumImageString3);
 
 		// 10. Add the image to the panel
 		panel.add(drumLabelWithImage);
 		panel.add(drumLabelWithImage2);
+		panel.add(drumLabelWithImage3);;
 		
 		// 11. Set the layout of the panel to "new GridLayout()"
 		panel.setLayout(new GridLayout());
@@ -60,6 +64,7 @@ public class DrumKit extends MouseAdapter {
 		// 13. add a mouse listener to drumLabelWithImage.
 		drumLabelWithImage.addMouseListener(this);
 		drumLabelWithImage2.addMouseListener(this);
+		drumLabelWithImage3.addMouseListener(this);
 	}
 
 	@Override
@@ -74,8 +79,12 @@ public class DrumKit extends MouseAdapter {
 		// 16. If they clicked on the drumImage...
 		if (drumClicked == drumLabelWithImage)
 			playSound ("cat-rats-drum.wav");
-		else
+		else if (drumClicked == drumLabelWithImage2)
 			playSound("drum2.wav");
+		else {
+			playSound("drum3.wav");
+		}
+		
 
 		// 17. ...use the playSound method to play a drum sound.
 
