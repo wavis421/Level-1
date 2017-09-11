@@ -26,14 +26,13 @@ public class PhotoQuiz  {
 		// 1. find an image on the internet, and put its URL in a String
 		// variable (from your browser, right click on the image, and select
 		// “Copy Image URL”)
-		String myCatPic = "http://hdwallpaperia.com/wp-content/uploads/2013/12/Cute-Kitten-Wallpaper-Free.jpg";
+		String myCatPic = "http://www.fabuloussavers.com/new_wallpaper/Impossiblycutekitten-catswallpaper-freecomputerdesktopwallpaper_1024.jpg";
 
 		// 2. create a variable of type "Component" that will hold your image
 		Component catComponent;
 
 		// 3. use the "createImage()" method below to initialize your Component
 		catComponent = createImage(myCatPic);
-		catComponent.addMouseMotionListener((MouseMotionListener) new CustomMouseMotionListener());
 
 		// 4. add the image to the quiz window
 		quizWindow.add(catComponent);
@@ -64,9 +63,8 @@ public class PhotoQuiz  {
 		// 12. pack the quiz window
 		// 13. ask another question
 		// 14+ check answer, say if correct or incorrect, etc.
-		myCatPic = "http://www.fabuloussavers.com/new_wallpaper/Impossiblycutekitten-catswallpaper-freecomputerdesktopwallpaper_1024.jpg";
+		myCatPic = "https://i.pinimg.com/736x/db/25/5b/db255b7876b170998a81344a13eba095.jpg";
 		catComponent = createImage(myCatPic);
-		catComponent.addMouseMotionListener((MouseMotionListener) new CustomMouseMotionListener());
 		quizWindow.add(catComponent);
 		quizWindow.pack();
 

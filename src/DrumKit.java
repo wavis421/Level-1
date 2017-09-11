@@ -19,6 +19,7 @@ import javax.swing.JPanel;
 public class DrumKit extends MouseAdapter {
 
 	JLabel drumLabelWithImage;
+	JLabel drumLabelWithImage2;
 
 	public static void main(String[] args) throws MalformedURLException  {
 		new DrumKit().getGoing();
@@ -42,66 +43,45 @@ public class DrumKit extends MouseAdapter {
 		// Eclipse project under "default package".
 		// 8. Put the name of your image in a String variable.
 		String drumImageString = "drum.jpg";
+		String drumImageString2 = "drum2.png";
 
 		// 9. Edit the next line to use your String variable
 		drumLabelWithImage = createLabelImage(drumImageString);
+		drumLabelWithImage2 = createLabelImage(drumImageString2);
 
 		// 10. Add the image to the panel
 		panel.add(drumLabelWithImage);
+		panel.add(drumLabelWithImage2);
+		
 		// 11. Set the layout of the panel to "new GridLayout()"
 		panel.setLayout(new GridLayout());
 		// 12. call the pack() method on the frame
 		frame.pack();
 		// 13. add a mouse listener to drumLabelWithImage.
-		drumLabelWithImage.addMouseListener(new MouseListener() {
+		drumLabelWithImage.addMouseListener(this);
+		drumLabelWithImage2.addMouseListener(this);
+	}
 
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				System.out.println("Mouse clicked: " + e.getSource());
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		JLabel drumClicked = (JLabel) e.getSource();
+		
+		// 15. Download a drum sound and drop it into your "default
+		// package".
+		// You can find it on freesound.org. To download it, log in as
+		// leagueofamazing/code4life.
+		
+		// 16. If they clicked on the drumImage...
+		if (drumClicked == drumLabelWithImage)
+			playSound ("cat-rats-drum.wav");
+		else
+			playSound("drum2.wav");
 
-				JLabel drumClicked = (JLabel) e.getSource();
-				// 15. Download a drum sound and drop it into your "default
-				// package".
-				// You can find it on freesound.org. To download it, log in as
-				// leagueofamazing/code4life.
-				// 16. If they clicked on the drumImage...
-				if (drumClicked != null) {
-					playSound ("cat-rats-drum.wav");
-				}
+		// 17. ...use the playSound method to play a drum sound.
 
-				// 17. ...use the playSound method to play a drum sound.
-
-				// 18. Add more images to make a drumkit. Remember to add a
-				// mouse
-				// listener to each one.
-
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void mouseExited(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void mousePressed(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
-
-		});
+		// 18. Add more images to make a drumkit. Remember to add a
+		// mouse
+		// listener to each one.
 	}
 
 	private JLabel createLabelImage(String fileName) throws MalformedURLException {
